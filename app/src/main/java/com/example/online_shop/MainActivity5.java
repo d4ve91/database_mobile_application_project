@@ -40,7 +40,10 @@ public class MainActivity5 extends AppCompatActivity {
             public void onClick(View view) {
                 OrderModel orderModel;
                 try {
-                    orderModel = new OrderModel(-1, et_order_date.getText().toString(), et_order_status.getText().toString());
+                    String orderDate = et_order_date.getText().toString();
+                    String orderStatus = et_order_status.getText().toString();
+
+                    orderModel = new OrderModel(-1, orderDate, orderStatus);
                     Toast.makeText(MainActivity5.this, orderModel.toString(), Toast.LENGTH_SHORT).show();
                 }catch (Exception e){
                     Toast.makeText(MainActivity5.this, "Error order", Toast.LENGTH_SHORT).show();

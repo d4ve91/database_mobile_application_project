@@ -40,6 +40,8 @@ public class DBOrder extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
+        contentValues.put(ID_ORDERS, orderModel.getID_Orders());
+        contentValues.put(ID_CUSTOMERS, orderModel.getID_Customers());
         contentValues.put(ORDER_DATE, orderModel.getOrderDate());
         contentValues.put(ORDER_STATUS, orderModel.getOrderStatus());
 //        contentValues.put(ID, productModel.getID());
@@ -97,6 +99,14 @@ public class DBOrder extends SQLiteOpenHelper {
                     String orderStatus = cursor.getString(4); // Pobierz wartość z nowej kolumny
 
                     OrderModel newOrder = new OrderModel(orderID, ordersID, customersID, orderDate, orderStatus);
+
+                    // Tutaj dodaj kod do aktualizacji pól ID_Orders i ID_Customers
+                    // Na przykład:
+                    // int idOrders = cursor.getInt(cursor.getColumnIndex("ID_Orders"));
+                    // int idCustomers = cursor.getInt(cursor.getColumnIndex("ID_Customers"));
+                    // newOrder.setID_Orders(idOrders);
+                    // newOrder.setID_Customers(idCustomers);
+
                     returnList.add(newOrder);
 
                 } while (cursor.moveToNext());
