@@ -14,16 +14,20 @@ import java.util.List;
 public class DBOrder extends SQLiteOpenHelper {
 
     public static final String ID = "ID";
+    public static final String ID_ORDERS = "ID_ORDERS";
+    public static final String ID_CUSTOMERS = "ID_CUSTOMERS";
     public static final String ORDER_TABLE = "ORDER_TABLE";
     public static final String ORDER_DATE = "ORDER_DATE";
     public static final String ORDER_STATUS = "ORDER_STATUS";
+    private OrderModel orderModel;
+
     public DBOrder(@Nullable Context context) {
-        super(context, "orders.db", null, 1);
+        super(context, "orders.db", null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String dataBaseTable = "CREATE TABLE " + ORDER_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ORDER_DATE + " TEXT, " + ORDER_STATUS + " TEXT)";
+        String dataBaseTable = "CREATE TABLE " + ORDER_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ID_ORDERS + " INT, " + ID_CUSTOMERS + " INT, " + ORDER_DATE + " TEXT, " + ORDER_STATUS + " TEXT)";
         sqLiteDatabase.execSQL(dataBaseTable);
     }
 
@@ -59,31 +63,55 @@ public class DBOrder extends SQLiteOpenHelper {
             return false;
         }
     }
-    public List<OrderModel> getEveryone(){
+
+//    public boolean deleteItem(OrderModel orderModel){
+//
+//        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+//        String queryString = "DELETE FROM " + ORDER_TABLE + " WHERE " + ID + " = " + orderModel.getID();
+//        Cursor cursor = sqLiteDatabase.rawQuery(queryString, null);
+//        if (cursor.moveToFirst()){
+//            return true;
+//        }else {
+//            return false;
+//        }
+//    }
+
+    public List<OrderModel> getEveryone() {
         List<OrderModel> returnList = new ArrayList<>();
 
         String queryString = "SELECT * FROM " + ORDER_TABLE;
 
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
 
-        Cursor cursor = sqLiteDatabase.rawQuery(queryString, null);
+        Cursor cursor = null;
 
-        if (cursor.moveToFirst()){
-            do {
-                int orderID = cursor.getInt(0);
-                String orderDate = cursor.getString(1);
-                String orderStatus = cursor.getString(2);
+        try {
+            cursor = sqLiteDatabase.rawQuery(queryString, null);
 
-                OrderModel newOrder = new OrderModel(orderID, orderDate, orderStatus);
-                returnList.add(newOrder);
+            if (cursor.moveToFirst()) {
+                do {
+                    int orderID = cursor.getInt(0);
+                    int ordersID = cursor.getInt(1);
+                    int customersID = cursor.getInt(2);
+                    String orderDate = cursor.getString(3);
+                    String orderStatus = cursor.getString(4); // Pobierz wartość z nowej kolumny
 
-            }while (cursor.moveToNext());
+                    OrderModel newOrder = new OrderModel(orderID, ordersID, customersID, orderDate, orderStatus);
+                    returnList.add(newOrder);
+
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            sqLiteDatabase.close();
         }
-        else {
 
-        }
-        cursor.close();
-        sqLiteDatabase.close();
         return returnList;
     }
+
+
 }
