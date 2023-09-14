@@ -50,7 +50,7 @@ public class MainActivity5 extends AppCompatActivity {
         btn_view_value.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                DBOrder dbOrder = new DBOrder(MainActivity5.this);
+                DBOrder dbOrder = new DBOrder(MainActivity5.this);
 //                List<OrderModel> orderModelsEveryone = dbOrder.getEveryone();
 //                Toast.makeText(MainActivity5.this, orderModelsEveryone.toString(), Toast.LENGTH_SHORT).show();
             }
