@@ -18,7 +18,7 @@ public class DBOrder extends SQLiteOpenHelper {
     public static final String ORDER_DATE = "ORDER_DATE";
     public static final String ORDER_STATUS = "ORDER_STATUS";
     public DBOrder(@Nullable Context context) {
-        super(context, "orders.db", null, 1);
+        super(context, "orders.db", null, 2);
     }
 
     @Override
