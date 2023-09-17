@@ -1,4 +1,4 @@
-package com.example.online_shop;
+package com.example.online_shop.package2;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.online_shop.package2.CategoryModel;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Online_shop">
         <activity
-            android:name=".MainActivity5"
+            android:name=".package5.MainActivity5"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,10 +17,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity4"
+            android:name=".package4.MainActivity4"
             android:exported="false" />
         <activity
-            android:name=".MainActivity3"
+            android:name=".package3.MainActivity3"
             android:exported="false" />
     </application>
 

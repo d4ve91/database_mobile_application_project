@@ -1,4 +1,4 @@
-package com.example.online_shop;
+package com.example.online_shop.package2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +11,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.online_shop.R;
 
 public class MainActivity2 extends AppCompatActivity {
 

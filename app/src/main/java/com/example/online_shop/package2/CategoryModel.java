@@ -1,4 +1,4 @@
-package com.example.online_shop;
+package com.example.online_shop.package2;
 
 public class CategoryModel {
     private int id;

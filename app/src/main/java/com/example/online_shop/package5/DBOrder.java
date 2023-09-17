@@ -1,4 +1,4 @@
-package com.example.online_shop;
+package com.example.online_shop.package5;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -96,12 +96,10 @@ public class DBOrder extends SQLiteOpenHelper {
                     int ordersID = cursor.getInt(1);
                     int customersID = cursor.getInt(2);
                     String orderDate = cursor.getString(3);
-                    String orderStatus = cursor.getString(4); // Pobierz wartość z nowej kolumny
+                    String orderStatus = cursor.getString(4);
 
                     OrderModel newOrder = new OrderModel(orderID, ordersID, customersID, orderDate, orderStatus);
 
-                    // Tutaj dodaj kod do aktualizacji pól ID_Orders i ID_Customers
-                    // Na przykład:
                     // int idOrders = cursor.getInt(cursor.getColumnIndex("ID_Orders"));
                     // int idCustomers = cursor.getInt(cursor.getColumnIndex("ID_Customers"));
                     // newOrder.setID_Orders(idOrders);

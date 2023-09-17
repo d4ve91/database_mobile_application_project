@@ -1,4 +1,4 @@
-package com.example.online_shop;
+package com.example.online_shop.package5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.List;
+import com.example.online_shop.R;
 
 public class MainActivity5 extends AppCompatActivity {
 
@@ -47,7 +47,7 @@ public class MainActivity5 extends AppCompatActivity {
                     Toast.makeText(MainActivity5.this, orderModel.toString(), Toast.LENGTH_SHORT).show();
                 }catch (Exception e){
                     Toast.makeText(MainActivity5.this, "Error order", Toast.LENGTH_SHORT).show();
-                    orderModel = new OrderModel(0, 1, 2, "error", "error");
+                    orderModel = new OrderModel(0, 1, 2, "12.12.2022", "error");
                 }
 
                 DBOrder dbOrder = new DBOrder(MainActivity5.this);
