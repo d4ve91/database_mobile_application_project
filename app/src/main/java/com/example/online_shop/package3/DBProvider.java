@@ -1,4 +1,4 @@
-package com.example.online_shop;
+package com.example.online_shop.package3;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.online_shop.package3.ProviderModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ public class DBProvider extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createTable = "CREATE TABLE " + PROVIDER_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT, " + TEL_NUMBER + " INT, " + ADDRESS + " TEXT ) ";
+        String createTable = "CREATE TABLE " + PROVIDER_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT, " + TEL_NUMBER + " TEXT, " + ADDRESS + " TEXT ) ";
 
         sqLiteDatabase.execSQL(createTable);
     }
@@ -77,7 +79,7 @@ public class DBProvider extends SQLiteOpenHelper {
             do {
                 int providerID = cursor.getInt(0);
                 String providerName = cursor.getString(1);
-                int providerNum = cursor.getInt(2);
+                String providerNum = cursor.getString(2);
                 String providerAddress = cursor.getString(3);
 
                 ProviderModel newProviderModel = new ProviderModel(providerID, providerName, providerNum, providerAddress);

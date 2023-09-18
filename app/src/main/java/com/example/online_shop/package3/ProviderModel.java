@@ -1,12 +1,12 @@
-package com.example.online_shop;
+package com.example.online_shop.package3;
 
 public class ProviderModel {
     private int ID;
     private String name;
-    private long phone_number;
+    private String phone_number;
     private String address;
 
-    public ProviderModel(int ID, String name, long phone_number, String address) {
+    public ProviderModel(int ID, String name, String phone_number, String address) {
         this.ID = ID;
         this.name = name;
         this.phone_number = phone_number;
@@ -32,11 +32,11 @@ public class ProviderModel {
         this.name = name;
     }
 
-    public long getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(int phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 
@@ -52,9 +52,9 @@ public class ProviderModel {
     public String toString() {
         return "DostawcaModel{" +
                 "ID_Dostawca=" + ID +
-                ", Imie_dostawca='" + name + '\'' +
-                ", nr_tel=" + phone_number +
-                ", adres='" + address + '\'' +
+                ", Nr_tel='" + name + '\'' +
+                ", adres=" + phone_number +
+                ", imie_dostawca='" + address + '\'' +
                 '}';
     }
 }

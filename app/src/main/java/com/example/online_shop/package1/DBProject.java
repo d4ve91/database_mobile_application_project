@@ -1,4 +1,4 @@
-package com.example.online_shop;
+package com.example.online_shop.package1;
 
 import android.content.ContentValues;
 import android.content.Context;

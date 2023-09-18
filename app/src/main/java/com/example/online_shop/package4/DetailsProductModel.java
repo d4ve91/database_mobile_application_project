@@ -1,4 +1,4 @@
-package com.example.online_shop;
+package com.example.online_shop.package4;
 
 public class DetailsProductModel {
     private int ID;
